@@ -4,12 +4,17 @@ import React, { Component } from 'react'
 import Person from './components/Person'
 //import Counter from 'Components/Counter'
 import Houssem from "./Houssem.jpg"
+import './App.css';
 
 export default class App extends Component {
   constructor(props) {
     super(props)
     this.state ={
-        show: false
+        show: false,
+        image: Houssem ,
+        Fullname :"Houssem Ben Ncira",
+        bio:"FIFA Sports Medicine graduate ⚽ 🎫",
+        profession :"Sports Physician and Physiotherapist"
     }
 }
 
@@ -21,10 +26,9 @@ toggle() {
       <div className="App">
 
 
-         <button  onClick={() => this.toggle()}>show</button>
-                {this.state.show ? <Person image={Houssem} Fullname="Houssem Ben Ncira"
-                 bio="FIFA Sports Medicine graduate ⚽ 🎫" 
-                 profession ="Sports Physician and Physiotherapist"/>  : null}
+         <button className="button-1"  onClick={() => this.toggle()}>{this.state.show ? "hide": "show"}</button>
+                {this.state.show ? <Person image={this.state.image} Fullname={this.state.Fullname}
+                 bio={this.state.bio} profession={this.state.profession} /> : null}
                  
                 
       </div>
@@ -32,4 +36,7 @@ toggle() {
     )
   }
 }
+
+
+
 
